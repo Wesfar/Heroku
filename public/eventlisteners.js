@@ -59,6 +59,7 @@ let
   touchY = null,
   touchEndX = null,
   touchEndY = null;
+  touchLive = false;
 
 function touchEventListeners() {
   window.addEventListener("touchstart", touchStart, false);
@@ -68,7 +69,7 @@ function touchEventListeners() {
 
 function touchStart(event) {
   //  event.preventDefault();
-
+  touchLive = true;
   touchStartX = touchX = Math.round(event.changedTouches[0].clientX);
   touchStartY = touchY = Math.round(event.changedTouches[0].clientY);
 
@@ -88,6 +89,8 @@ function touchMove(event) {
 
 function touchEnd(event) {
   //  event.preventDefault();
+
+  touchLive = false;
 
   touchEndX = Math.round(event.changedTouches[0].clientX);
   touchEndY = Math.round(event.changedTouches[0].clientY);
