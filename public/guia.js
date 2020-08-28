@@ -9,7 +9,7 @@ Para verificar se estão instalados é correr no Terminal
 
 
 Inicializar npm neste projecto
-    colocar-me no Temrinal na directoria do projecto 
+    colocar-me no Temimnal na directoria do projecto 
     npm init
     posso basicamente dar ok a tudo
     vai criar um folder e um package.json
@@ -36,5 +36,16 @@ Criar folder "public" na raiz deste projecto
     
 No "index.html" é necessário adicionar a library do socket.io
 
+PARA ARRANCAR A APP LOCALMENTE FAZER NO TERMINAL => node server.js
 
-PARA ARRANCAR A APP É FAZER NO TERMINAL => node server.js
+
+
+App está deployed no Heroku
+Criei também uma sincronização da Goodle Drive ("Local") para o Github/Wesfar/Heroku e dai para o server do Heroku
+
+Para a app arrancar bem a partir do server é necessário ter na raiz um ficheiro "procfile" com o conteudo "web: node server.js"
+Isto é o equivalente ao "node server.js" para arrancar localmente
+
+PARA ARRANCAR A APP NA NET/NO SERVER HEROKU APENAS NECESSÁRIO IR AO SITE VIA LINK NO WESFAR.COM
+
+
