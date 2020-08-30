@@ -7,6 +7,9 @@ window.onload = function () { // igual a dizer: window.addEventListener("load", 
   initialize();
 };
 
+let utils = new Utils();
+let color = utils.getRandomColorRGB();
+
 function initialize() {
   setupEventListeners();
   canvases.push(new Canvas ("Canvas_0"));
@@ -30,8 +33,8 @@ function displayInstructions(){
 
 function ownDrawing(){
   canvases[1].context.beginPath();
-  canvases[1].context.fillStyle = "rgba(200,200,200,1)";
-  canvases[1].context.strokeStyle = "rgba(0,0,0,1)";
+  canvases[1].context.fillStyle = color;
+  canvases[1].context.strokeStyle = color;
   canvases[1].context.arc(touchX || mouseX, touchY || mouseY, 5, 0, 2*Math.PI);
   canvases[1].context.fill();
   canvases[1].context.stroke();
@@ -42,8 +45,8 @@ function ownDrawing(){
 socket.on("mouseBroadcast", externalDrawing);
 function externalDrawing (data){
     canvases[1].context.beginPath();
-    canvases[1].context.fillStyle = "rgba(0,0,200,1)";
-    canvases[1].context.strokeStyle = "rgba(0,0,0,1)";
+    canvases[1].context.fillStyle = data.color;
+    canvases[1].context.strokeStyle = data.color;
     canvases[1].context.arc(data.x, data.y, 5, 0, 2*Math.PI);
     canvases[1].context.fill();
     canvases[1].context.stroke();
@@ -54,7 +57,8 @@ function externalDrawing (data){
 function sendDataToServer(){
   let data = {
     x: touchX || mouseX,
-    y: touchY || mouseY 
+    y: touchY || mouseY,
+    color: color
   }
   socket.emit("mouse", data);
   console.log("Sending: "+ data.x + ", " + data.y );
