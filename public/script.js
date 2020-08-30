@@ -32,7 +32,7 @@ function ownDrawing(){
   canvases[1].context.beginPath();
   canvases[1].context.fillStyle = "rgba(200,200,200,1)";
   canvases[1].context.strokeStyle = "rgba(0,0,0,1)";
-  canvases[1].context.arc(touchStartX || mouseX, touchStartY || mouseY, 5, 0, 2*Math.PI);
+  canvases[1].context.arc(touchX || mouseX, touchY || mouseY, 5, 0, 2*Math.PI);
   canvases[1].context.fill();
   canvases[1].context.stroke();
   };
@@ -53,8 +53,8 @@ function externalDrawing (data){
 // Enviar dados para o Server através do Socket deste Cliente
 function sendDataToServer(){
   let data = {
-    x: touchStartX || mouseX,
-    y: touchStartY || mouseY 
+    x: touchX || mouseX,
+    y: touchY || mouseY 
   }
   socket.emit("mouse", data);
   console.log("Sending: "+ data.x + ", " + data.y );
