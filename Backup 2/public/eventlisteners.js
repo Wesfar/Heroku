@@ -75,7 +75,7 @@ function touchStart(event) {
 
   touchStartDate = new Date();
 
-  //console.log("Touch Start => " + "X: "+ touchStartX + " " + "Y: "+ touchStartY + " "+"Time: " + sayTime());
+  console.log("Touch Start => " + "X: "+ touchStartX + " " + "Y: "+ touchStartY + " "+"Time: " + sayTime());
 };
 
 function touchMove(event) {
@@ -84,7 +84,7 @@ function touchMove(event) {
   touchX = Math.round(event.changedTouches[0].clientX);
   touchY = Math.round(event.changedTouches[0].clientY);
 
-  //console.log("Touch       => " + "X: "+ touchX + " " + "Y: "+ touchY + " "+"Time: " + sayTime());
+  console.log("Touch       => " + "X: "+ touchX + " " + "Y: "+ touchY + " "+"Time: " + sayTime());
 };
 
 function touchEnd(event) {
@@ -98,8 +98,8 @@ function touchEnd(event) {
   touchEndDate = new Date();
   touchDuration = touchEndDate - touchStartDate;
 
-  //console.log("Touch End   => " + "X: "+ touchEndX + " " + "Y: "+ touchEndY + " "+"Time: " + sayTime());
-  //console.log("Touch Duration: " + touchDuration);
+  console.log("Touch End   => " + "X: "+ touchEndX + " " + "Y: "+ touchEndY + " "+"Time: " + sayTime());
+  console.log("Touch Duration: " + touchDuration);
 };
 
 
@@ -115,10 +115,10 @@ function keyEventListeners() {
 
 function keyDown(event) {
   let key = event.keyCode;
-  //console.log("Key Down     => " + key + " "+"Time: " + sayTime());
+  console.log("Key Down     => " + key + " "+"Time: " + sayTime());
 };
 
 function keyUp(event) {
   let key = event.keyCode;
-  //console.log("Key Up       => " + key + " "+"Time: " + sayTime());
+  console.log("Key Up       => " + key + " "+"Time: " + sayTime());
 };
