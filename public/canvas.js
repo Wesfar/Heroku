@@ -1,5 +1,5 @@
 
-let width = 372;  //window.innerWidth;
+let width = 371;  //window.innerWidth;
 let height = 549; //window.innerHeight;
 
 let canvases  = [];
