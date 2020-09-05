@@ -11,8 +11,8 @@ class Canvas {
 
     this.HTMLCanvas.width = width;
     this.HTMLCanvas.height = height;
-    this.HTMLCanvas.style.left = '0px';
-    this.HTMLCanvas.style.top = '0px';
+    this.HTMLCanvas.style.left = '2px';
+    this.HTMLCanvas.style.top = '2px';
     this.HTMLCanvas.style.position = 'absolute';
 
     this.width = this.HTMLCanvas.width;
