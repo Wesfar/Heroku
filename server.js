@@ -23,9 +23,10 @@ let playersData = {
   }
 
 class Player {
-    constructor(player_id, player_name) {
+    constructor(player_id, player_name, player_color) {
         this.player_id = player_id,
-        this.player_name = player_name
+        this.player_name = player_name,
+        this.player_color = player_color
     }
 }
 
@@ -40,7 +41,7 @@ function newConnection (socket){
     function newPlayer(data){
         console.log("Data from Connection: "+ socket.id +" => " + "New Player = "+ data.player_name);
 
-        playersData.players.push(new Player(socket.id, data.player_name));
+        playersData.players.push(new Player(socket.id, data.player_name, data.player_color));
 
         console.log (playersData.players);
 

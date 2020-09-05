@@ -38,7 +38,7 @@ let color = utils.getRandomColorRGB();
 function initialize() {
   // Registar o nome do Player
   player = NameText.value;
-  Players.push(player);
+  //Players.push(player);
   sendPlayerDataToServer()
 
   NameText.parentNode.removeChild(NameText);
@@ -88,9 +88,14 @@ function updatePlayers (playersData){
 function displayPlayers(){
 canvases[0].context.beginPath();
 canvases[0].context.fillStyle = "black";
-canvases[0].context.fillText("Active Players: ", width-100, 20);
-for (i=0;i<Players.length;i++){
+canvases[0].context.fillText("Active Players: ", width-115, 20);
+for (i=0; i<Players.length; i++){
+  canvases[0].context.fillStyle = "black";
   canvases[0].context.fillText(Players[i].player_name, width-100, 40+10*i);
+  canvases[0].context.fillStyle = Players[i].player_color;
+  canvases[0].context.beginPath();
+  canvases[0].context.arc(width-110,40+10*i-3,3,0,Math.PI*2);
+  canvases[0].context.fill();
   };
 };
 
@@ -123,7 +128,8 @@ function sendMouseDataToServer(){
 // Enviar dados do novo Player para o Server através do Socket deste Cliente
 function sendPlayerDataToServer(){
   let data = {
-    player_name: player
+    player_name: player,
+    player_color: color
   }
   socket.emit("newPlayer", data);
   console.log("Sending: "+ data.player_name);
