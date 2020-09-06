@@ -1,6 +1,3 @@
-const { Socket } = require("dgram")
-const { ClientRequest } = require("http")
-
 Instalar Node.JS e NPM
 
 Para verificar se estão instalados é correr no Terminal
