@@ -81,22 +81,35 @@ function ownDrawing(){
 // Receber mensagem "playersBroadcast" do Server e executar função updatePlayers(data)
 socket.on("playersBroadcast", updatePlayers);
 function updatePlayers (playersData){
-  console.log("Received Updated Players List: " + playersData.players)
+  console.log("Received Updated Players List: " + playersData.players)  
   Players = playersData.players;
 };
 
 
 function displayPlayers(){
-canvases[0].context.beginPath();
-canvases[0].context.fillStyle = "black";
-canvases[0].context.fillText("Active Players: ", width-115, 20);
-for (i=0; i<Players.length; i++){
-  canvases[0].context.fillStyle = "black";
-  canvases[0].context.fillText(Players[i].player_name, width-100, 40+10*i);
-  canvases[0].context.fillStyle = Players[i].player_color;
+
+  // This Player
   canvases[0].context.beginPath();
-  canvases[0].context.arc(width-110,40+10*i-3,3,0,Math.PI*2);
+  canvases[0].context.fillStyle = "black";
+  canvases[0].context.fillText("This Player: ", width-115, 20);
+  canvases[0].context.fillText(player, width-100, 35);
+  canvases[0].context.fillStyle = color;
+  canvases[0].context.beginPath();
+  canvases[0].context.arc(width-110,35-3,3,0,Math.PI*2);
   canvases[0].context.fill();
+
+  
+  // Active Players
+  canvases[0].context.beginPath();
+  canvases[0].context.fillStyle = "black";
+  canvases[0].context.fillText("Active Players: ", width-115, 60);
+  for (i=0; i<Players.length; i++){
+    canvases[0].context.fillStyle = "black";
+    canvases[0].context.fillText(Players[i].player_name, width-100, 75+10*i);
+    canvases[0].context.fillStyle = Players[i].player_color;
+    canvases[0].context.beginPath();
+    canvases[0].context.arc(width-110,75+10*i-3,3,0,Math.PI*2);
+    canvases[0].context.fill();
   };
 };
 
