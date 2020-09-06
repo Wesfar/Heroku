@@ -1,6 +1,6 @@
 
 let width = 371;  //window.innerWidth;
-let height = 549; //window.innerHeight;
+let height = 519; //window.innerHeight;
 
 let canvases  = [];
 

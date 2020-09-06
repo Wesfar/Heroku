@@ -7,8 +7,14 @@ let Players = [];
 
 
 // Atribuir os forms iniciais a Objectos Javascript
-var NameText = document.getElementById("PlayerNameText");
-var NameButton = document.getElementById("PlayerNameButton");
+let NameText = document.getElementById("PlayerNameText");
+let NameButton = document.getElementById("PlayerNameButton");
+let ClearButton = document.getElementById("ClearButton");
+
+ClearButton.style.display = "none";
+ClearButton.style.position = "relative";
+ClearButton.style.top = "530px";
+ClearButton.style.left = "2px";
 
 
 // Pre-seleccionar a caixa de texto de input do Nome quando a página fica carregada
@@ -20,6 +26,7 @@ NameText.select();
 // Avançar para initialize() quando se pressiona Enter ou clica
 NameText.addEventListener("keydown", function (event) { if (event.keyCode == 13) { initialize() } });
 NameButton.addEventListener("click", initialize);
+ClearButton.addEventListener("click", clearCanvas);
 
 
 //Limpar o form de introdução do nome - se não o eliminarmos a página acelera incontrolavelmente !
@@ -43,7 +50,8 @@ function initialize() {
 
   NameText.parentNode.removeChild(NameText);
   NameButton.parentNode.removeChild(NameButton);
-  
+  ClearButton.style.display = "block";
+
   setupEventListeners();
   canvases.push(new Canvas ("Canvas_0"));
   canvases.push(new Canvas ("Canvas_1"));
@@ -162,4 +170,8 @@ function newFrame() {
   };
 
   requestAnimationFrame(newFrame);
+};
+
+function clearCanvas() {
+  canvases[1].clear();
 };
