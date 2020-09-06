@@ -59,9 +59,10 @@ function displayInstructions(){
   canvases[0].context.beginPath();
   canvases[0].context.fillStyle = "darkblue";
 
-  canvases[0].context.fillText("Carregar em qualquer parte do ecrã", 10, 20);
-  canvases[0].context.fillText("A imagem da bola aparece em todos", 10, 30);
-  canvases[0].context.fillText("os ecrãs dos users que estiverem no site!", 10, 40);
+  canvases[0].context.fillText("V20200906-01", 10, 20);
+  canvases[0].context.fillText("Carregar em qualquer parte do ecrã", 10, 30);
+  canvases[0].context.fillText("A imagem da bola aparece em todos", 10, 40);
+  canvases[0].context.fillText("os ecrãs dos users que estiverem no site!", 10, 50);
   };
 
 
